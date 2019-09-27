@@ -1,0 +1,11 @@
+.qnsAddFrm {
+    display: flex;
+    flex-direction: column;
+    width: 98%;
+    margin: 10px auto;
+  }
+  
+  .qnsAddFrm > * {
+    width: 100%;
+  }
+ 
