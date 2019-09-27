@@ -11,8 +11,8 @@ export class QnsAddComponent implements OnInit {
 
   insForm = this.dataService.qnsForm;
 
-  insData() {
-    console.log('insdata');
+  ins() {
+    this.dataService.insData(this.insForm.value);
   }
 
   ngOnInit() {

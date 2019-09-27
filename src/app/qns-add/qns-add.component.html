@@ -1,26 +1,26 @@
-<form [formGroup]="insForm" (ngSubmit)="insData()" >
+<form [formGroup]="insForm" (ngSubmit)="ins()" >
     <div class="qnsAddFrm">
         <mat-form-field>
-            <input matInput placeholder="MCQ Question">
+            <input matInput formControlName="qns" placeholder="MCQ Question">
         </mat-form-field>
 
         <mat-form-field>
-            <input matInput placeholder="Option A">
+            <input matInput formControlName="opnA" placeholder="Option A">
         </mat-form-field>
 
         <mat-form-field>
-            <input matInput placeholder="Option B">
+            <input matInput formControlName="opnB" placeholder="Option B">
         </mat-form-field>
 
         <mat-form-field>
-            <input matInput placeholder="Option C">
+            <input matInput formControlName="opnC" placeholder="Option C">
         </mat-form-field>
 
         <mat-form-field>
-            <input matInput placeholder="Option D">
+            <input matInput formControlName="opnD" placeholder="Option D">
         </mat-form-field>
 
-        <mat-radio-group aria-label="Select Answer">
+        <mat-radio-group aria-label="Select Answer" formControlName="ans">
             <label id="">Select Answer</label>
             <mat-radio-button value="A">A</mat-radio-button>
             <mat-radio-button value="B">B</mat-radio-button>
