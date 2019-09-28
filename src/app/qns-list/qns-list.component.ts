@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../service/data.service';
 
 @Component({
   selector: 'app-qns-list',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class QnsListComponent implements OnInit {
 
-  constructor() { }
+  constructor(private dataservice: DataService) { }
+  qnList: any;
+
+  fetchQns() {
+    this.dataservice.getData().subscribe( res => {
+      this.qnList = res;
+    });
+  }
 
   ngOnInit() {
+    this.fetchQns();
   }
 
 }

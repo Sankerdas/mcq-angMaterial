@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AngularFireDatabase } from 'angularfire2/database';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -21,6 +22,10 @@ export class DataService {
   insData(data) {
     this.fireDb.list('qns').push(data);
     console.log('inserted successfully');
+  }
+
+  getData(): Observable<any[]> {
+    return this.fireDb.list('qns').valueChanges();
   }
 
 }
