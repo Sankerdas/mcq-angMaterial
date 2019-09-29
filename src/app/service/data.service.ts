@@ -6,9 +6,12 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
+
+
 export class DataService {
 
   constructor(public formBuilder: FormBuilder, public fireDb: AngularFireDatabase) { }
+  books: any;
 
   qnsForm: FormGroup = this.formBuilder.group({
     qns: ['', Validators.required],
@@ -25,7 +28,11 @@ export class DataService {
   }
 
   getData(): Observable<any[]> {
-    return this.fireDb.list('qns').valueChanges();
+    return this.fireDb.list('qns').snapshotChanges();
+  }
+
+  deleteData(key) {
+    this.fireDb.list('qns').remove(key);
   }
 
 }

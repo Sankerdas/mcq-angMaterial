@@ -1,26 +1,18 @@
-<mat-card-title>    
-    Add MCQ Quesions    
-</mat-card-title> 
+<mat-card-title>
+    MCQ Quesions List
+</mat-card-title>
 
-<div class="qnsListDiv" *ngFor="let qn of qnList" >
+<div class="qnsListDiv" *ngFor="let qn of qnList; let i = index" >
 <mat-card class="qns-card" >
     <mat-card-content>
-      <mat-card-title> {{ qn.qns }} </mat-card-title>
-      <p>
-         A) {{ qn.opnA }}
-      </p>
-      <p>
-        B) {{ qn.opnB }}
-      </p>
-      <p>
-        C) {{ qn.opnC }}
-      </p>
-      <p>
-        D) {{ qn.opnD }}
-      </p>
+      <mat-card-title> {{ i+1 }}. {{ qn.qns }} </mat-card-title>
+      <p [ngClass]="{ansTxt: qn.ans == 'A' }" >A) {{ qn.opnA }}</p>
+      <p [ngClass]="{ansTxt: qn.ans == 'B' }" >B) {{ qn.opnB }}</p>
+      <p [ngClass]="{ansTxt: qn.ans == 'C' }" >C) {{ qn.opnC }}</p>
+      <p [ngClass]="{ansTxt: qn.ans == 'D' }" >D) {{ qn.opnD }}</p>
     </mat-card-content>
     <mat-card-actions>
-      <button mat-button>Delete</button>
+      <button (click)="deleteQns(qn.key)" mat-button> {{qn.key}} </button>
     </mat-card-actions>
   </mat-card>
 </div>

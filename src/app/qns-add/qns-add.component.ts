@@ -13,9 +13,13 @@ export class QnsAddComponent implements OnInit {
   insForm = this.dataService.qnsForm;
 
   ins() {
-    this.dataService.insData(this.insForm.value);
-    this.insForm.reset();
-    this.openSnackBar('Questions Inserted Successfully', 'close');
+    if (this.insForm.valid) {
+      this.dataService.insData(this.insForm.value);
+      this.insForm.reset();
+      this.openSnackBar('Questions Inserted Successfully', 'close');
+    } else {
+      console.log('NOT valid');
+    }
   }
 
   openSnackBar(message: string, action: string) {
