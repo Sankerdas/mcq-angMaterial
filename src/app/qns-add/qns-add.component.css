@@ -4,11 +4,14 @@
     width: 98%;
     margin: 10px auto;
   }
-  
+
   .qnsAddFrm > * {
     width: 100%;
   }
 
+  .mat-radio-button ~ .mat-radio-button {
+    margin-left: 20px;
+  }
 
-  
- 
+
+
