@@ -15,6 +15,18 @@ export class QuizMainComponent implements OnInit {
   crt = 0;
   wrg = 0;
 
+  tRun = false;
+  showQz = false;
+  seconds = 0;
+  minutes = 0;
+
+
+  qzStart = () => {
+    this.tRun = true;
+    this.showQz = true;
+    this.callTime();
+  }
+
   fetchQz() {
     this.dataservice.getData().pipe(
       map(changes => {
@@ -31,8 +43,26 @@ export class QuizMainComponent implements OnInit {
   }
 
   finishQz() {
+    this.tRun = false;
     console.log('correct ' + this.crt + ' wrong ' + this.wrg );
   }
+
+  addTime = () => {
+    if (this.tRun) {
+    this.seconds++;
+    if (this.seconds > 60 ) {
+      this.minutes++;
+      this.seconds = 0;
+      }
+    this.callTime();
+  }
+  }
+
+  callTime = () => {
+    setTimeout(() => { this.addTime(); }, 1000);
+  }
+
+
 
 
   ngOnInit() {

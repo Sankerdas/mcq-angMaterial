@@ -14,9 +14,20 @@
     color: chocolate;
 }
 
-.cardDisable{
+.cardDisable {
     pointer-events: none;
     background-color: #d6d6d6;
     cursor: not-allowed;
     transition: 1s;
 }
+
+.tmeDiv {
+    position: fixed;
+    top: 5px;
+    right: 20px;
+    background: #1F2831;
+    color: #fff;
+    opacity: .8;
+    border-radius: 5px;
+    padding: 5px;
+  }

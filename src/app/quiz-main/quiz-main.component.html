@@ -2,6 +2,9 @@
   MCQ Quiz
 </mat-card-title>
 
+<button (click)="qzStart()" mat-raised-button color="warn">Start Quiz</button>
+
+<div *ngIf="showQz">
 <div class="quizListDiv" *ngFor="let qn of qzList; let i = index" >
 <mat-card class="qns-card" flex-gt-sm >
   <mat-card-content>
@@ -19,4 +22,6 @@
 
 <button (click)="finishQz()" mat-raised-button color="warn">Finish Quiz</button>
 
+</div>
 
+<h5 class="tmeDiv">Time <br/> <span>  {{ minutes }} : {{ seconds }} </span></h5>
