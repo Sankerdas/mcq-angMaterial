@@ -12,6 +12,8 @@ export class QuizMainComponent implements OnInit {
   constructor( private dataservice: DataService ) { }
 
   qzList: any;
+  crt = 0;
+  wrg = 0;
 
   fetchQz() {
     this.dataservice.getData().pipe(
@@ -19,6 +21,19 @@ export class QuizMainComponent implements OnInit {
         return changes.map(c => ( { key: c.payload.key, ...c.payload.val() } ));
       }) ).subscribe(res => ( this.qzList = res ) );
   }
+
+  checkAns(ans) {
+    if (ans) {
+      this.crt ++;
+    } else {
+      this.wrg ++;
+    }
+  }
+
+  finishQz() {
+    console.log('correct ' + this.crt + ' wrong ' + this.wrg );
+  }
+
 
   ngOnInit() {
     this.fetchQz();

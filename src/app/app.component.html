@@ -15,7 +15,7 @@
     </mat-toolbar-row>
   </mat-toolbar>
 
-  <mat-sidenav-container fxFlexFill>
+  <mat-sidenav-container>
     <mat-sidenav #sidenav>
       <mat-nav-list>
         <a (click)="sidenav.toggle()" routerLink='quiz' routerLinkActive='active' mat-list-item>Quiz</a>
@@ -23,7 +23,7 @@
         <a (click)="sidenav.toggle()" routerLink="login" routerLinkActive="active" mat-list-item>Login</a>
       </mat-nav-list>
     </mat-sidenav>
-    <mat-sidenav-content fxFlexFill>
+    <mat-sidenav-content>
       <router-outlet></router-outlet>
     </mat-sidenav-content>
   </mat-sidenav-container>

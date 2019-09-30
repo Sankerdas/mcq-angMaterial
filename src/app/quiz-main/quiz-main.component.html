@@ -2,19 +2,21 @@
   MCQ Quiz
 </mat-card-title>
 
-<div class="qnsListDiv" *ngFor="let qn of qzList; let i = index" >
+<div class="quizListDiv" *ngFor="let qn of qzList; let i = index" >
 <mat-card class="qns-card" flex-gt-sm >
   <mat-card-content>
     <mat-card-title> {{ i+1 }}. {{ qn.qns }} </mat-card-title>
-    <p [ngClass]="{ansTxt: qn.ans == 'A' }" >A) {{ qn.opnA }}</p>
-    <p [ngClass]="{ansTxt: qn.ans == 'B' }" >B) {{ qn.opnB }}</p>
-    <p [ngClass]="{ansTxt: qn.ans == 'C' }" >C) {{ qn.opnC }}</p>
-    <p [ngClass]="{ansTxt: qn.ans == 'D' }" >D) {{ qn.opnD }}</p>
+    <p appAnswerDir class="optionClass" (click)=" checkAns(qn.ans === 'A' ? true : false ) " >A) {{ qn.opnA }}</p>
+    <p appAnswerDir class="optionClass" (click)=" checkAns(qn.ans === 'B' ? true : false ) " >B) {{ qn.opnB }}</p>
+    <p appAnswerDir class="optionClass" (click)=" checkAns(qn.ans === 'C' ? true : false ) " >C) {{ qn.opnC }}</p>
+    <p appAnswerDir class="optionClass" (click)=" checkAns(qn.ans === 'D' ? true : false ) " >D) {{ qn.opnD }}</p>
   </mat-card-content>
   <mat-card-actions>
     <button mat-button> Delete </button>
   </mat-card-actions>
 </mat-card>
 </div>
+
+<button (click)="finishQz()" mat-raised-button color="warn">Finish Quiz</button>
 
 

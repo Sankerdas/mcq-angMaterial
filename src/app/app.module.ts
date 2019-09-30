@@ -21,6 +21,7 @@ import { LoginComponent } from './login/login.component';
 import { QuizMainComponent } from './quiz-main/quiz-main.component';
 import { appRoutes } from './routerConfig';
 import { environment } from 'src/environments/environment';
+import { AnswerDirDirective } from './customDirectives/answer-dir.directive';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { environment } from 'src/environments/environment';
     QnsAddComponent,
     QnsListComponent,
     LoginComponent,
-    QuizMainComponent
+    QuizMainComponent,
+    AnswerDirDirective
   ],
   imports: [
     BrowserModule,
