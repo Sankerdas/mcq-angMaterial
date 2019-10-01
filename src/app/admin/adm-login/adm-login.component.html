@@ -1,11 +1,11 @@
 <mat-card-title>    
-    User Login    
+    Admin Login    
 </mat-card-title> 
 
-<form [formGroup]="usrForm" (ngSubmit)="usrLogin()" >
-    <div class="usrFormClass">
+<form [formGroup]="admForm" (ngSubmit)="admLogin()" >
+    <div class="admFormClass">
         <mat-form-field>
-            <input matInput formControlName="usr" placeholder="User Name">
+            <input matInput formControlName="adm" placeholder="Admin ID">
         </mat-form-field>
         <mat-form-field>
             <input matInput formControlName="pswd" placeholder="Password">
@@ -14,5 +14,5 @@
     </div>
 </form>
 
-<h2> {{ usrForm.value | json }} </h2>
+<h2> {{ admForm.value | json }} </h2>
 

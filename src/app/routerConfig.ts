@@ -3,6 +3,7 @@ import { Routes } from '@angular/router';
 import { DashComponent } from './dash/dash.component';
 import { LoginComponent } from './login/login.component';
 import { QuizMainComponent } from './quiz-main/quiz-main.component';
+import { AdmLoginComponent } from './admin/adm-login/adm-login.component';
 
 export const appRoutes: Routes = [
     {
@@ -16,6 +17,10 @@ export const appRoutes: Routes = [
     {
         path: 'login',
         component: LoginComponent
+    },
+    {
+        path: 'admin',
+        component: AdmLoginComponent
     },
     {
         path: '',

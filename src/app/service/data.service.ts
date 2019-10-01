@@ -11,7 +11,14 @@ import { Observable } from 'rxjs';
 export class DataService {
 
   constructor(public formBuilder: FormBuilder, public fireDb: AngularFireDatabase) { }
-  books: any;
+
+  mtchPwd: any;
+  private admDet = [
+    {
+      adm: 'admin',
+      pswd: 'admin@me'
+    }
+  ];
 
   qnsForm: FormGroup = this.formBuilder.group({
     qns: ['', Validators.required],
@@ -20,6 +27,16 @@ export class DataService {
     opnC: ['', Validators.required],
     opnD: ['', Validators.required],
     ans: ['', Validators.required]
+  });
+
+  admForm: FormGroup = this.formBuilder.group({
+    adm: ['', Validators.required ],
+    pswd: ['', Validators.required ]
+  });
+
+  usrForm: FormGroup = this.formBuilder.group({
+    usr: ['', Validators.required ],
+    pswd: ['', Validators.required ]
   });
 
   insData(data) {
@@ -33,6 +50,21 @@ export class DataService {
 
   deleteData(key) {
     this.fireDb.list('qns').remove(key);
+  }
+
+  adminLogin(admData) {
+    const ad = admData.adm;
+    const ps = admData.pswd;
+    if ( ad === this.admDet[0].adm && ps === this.admDet[0].pswd ) {
+      console.log('success');
+    } else {
+      console.log('faild');
+    }
+
+      }
+
+
+  userLogin(data) {
   }
 
 }
