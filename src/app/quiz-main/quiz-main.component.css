@@ -3,15 +3,22 @@
 }
 
 .optionClass {
-    width: 50%;
+    transition: 0.5s;
+    padding: 10px;
+    border-radius: 5px;
 }
 
 .optionClass:hover {
     color: #ff4081;
     cursor: pointer;
+    background: #eaeaeac4;
+    transition: 0.5s;
+    margin-left: 10px;
+    width: fit-content;
 }
 .ansSelected {
     color: chocolate;
+    margin-left: 10px;
 }
 
 .cardDisable {
@@ -23,7 +30,7 @@
 
 .tmeDiv {
     position: fixed;
-    top: 5px;
+    bottom: 5px;
     right: 20px;
     background: #1F2831;
     color: #fff;
