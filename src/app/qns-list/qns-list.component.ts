@@ -24,7 +24,13 @@ export class QnsListComponent implements OnInit {
   }
 
   deleteQns(id) {
-    this.dataservice.deleteData(id);
+    const delcon = confirm(' Do you want to delete this quesion ');
+    if (delcon) {
+        this.dataservice.deleteData(id);
+        this.dataservice.openSnackBar('Question Deleted ', 'Done');
+    } else {
+      console.log('delete canceled');
+    }
   }
 
   ngOnInit() {

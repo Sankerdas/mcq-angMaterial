@@ -1,17 +1,26 @@
 .qnsAddFrm {
     display: flex;
     flex-direction: column;
-    width: 98%;
     margin: 10px auto;
   }
 
-  .qnsAddFrm > * {
-    width: 100%;
-  }
 
   .mat-radio-button ~ .mat-radio-button {
     margin-left: 20px;
   }
 
+  .radioLabel {
+    margin-right: 10px
+  }
 
+.addBtn {
+  width: 50%;
+  align-self: center;
+  margin: 20px;
+}
+
+
+mat-icon {
+  line-height: 0.98em;
+}
 

@@ -1,24 +1,41 @@
-<mat-card-title>
-  MCQ Quiz
-</mat-card-title>
+<h2 class="subttl">
+    MCQ Quiz
+</h2>
 <br>
-<button (click)="qzStart()" mat-raised-button color="warn">Start Quiz</button>
 
-<div *ngIf="showQz" >
-<div class="quizListDiv" *ngFor="let qn of qzList; let i = index" >
-<mat-card class="qns-card" flex-gt-sm >
-  <mat-card-content>
-    <mat-card-title> {{ i+1 }}. {{ qn.qns }} </mat-card-title>
-    <p appAnswerDir (click)=" checkAns(qn.ans === 'A' ? true : false ) " ><span class="optionClass" >A) {{ qn.opnA }}</span></p>
-    <p appAnswerDir (click)=" checkAns(qn.ans === 'B' ? true : false ) " ><span class="optionClass" >B) {{ qn.opnB }}</span></p>
-    <p appAnswerDir (click)=" checkAns(qn.ans === 'C' ? true : false ) " ><span class="optionClass" >C) {{ qn.opnC }}</span></p>
-    <p appAnswerDir (click)=" checkAns(qn.ans === 'D' ? true : false ) " ><span class="optionClass" >D) {{ qn.opnD }}</span></p>
-  </mat-card-content>
-  <mat-card-actions>
-  </mat-card-actions>
-</mat-card>
-</div>
-<button (click)="finishQz()" mat-raised-button color="warn">Finish Quiz</button>
+<div class="container" fxLayout="row" fxLayoutAlign="center" >
+    <button (click)="qzStart()" *ngIf="!showQz" mat-raised-button color="warn">Start Quiz</button>
 </div>
 
-<h5 class="tmeDiv">Time <br/> <span>  {{ minutes }} : {{ seconds }} </span></h5>
+<div fxLayout="row"  fxLayout.xs="column" fxLayout.sm="column" fxLayoutAlign="center" fxLayoutGap="1%" >
+
+    <div *ngIf="showQz" >
+      <div class="quizListDiv" *ngFor="let qn of qzList; let i = index" >
+        <mat-card class="qns-card">
+            <mat-card-content>
+              <mat-card-title> {{ i+1 }}. {{ qn.qns }} </mat-card-title>
+              <p appAnswerDir (click)=" checkAns(qn.ans === 'A' ? true : false ) " ><span class="optionClass" >A) {{ qn.opnA }}</span></p>
+              <p appAnswerDir (click)=" checkAns(qn.ans === 'B' ? true : false ) " ><span class="optionClass" >B) {{ qn.opnB }}</span></p>
+              <p appAnswerDir (click)=" checkAns(qn.ans === 'C' ? true : false ) " ><span class="optionClass" >C) {{ qn.opnC }}</span></p>
+              <p appAnswerDir (click)=" checkAns(qn.ans === 'D' ? true : false ) " ><span class="optionClass" >D) {{ qn.opnD }}</span></p>
+            </mat-card-content>
+          <mat-card-actions>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+      <div  fxLayout="row" fxLayoutAlign="center" style="margin-top: 20px">
+        <button (click)="finishQz()" class="addQz" mat-raised-button color="warn">Finish Quiz</button>
+      </div>
+    </div>
+
+</div>
+
+<footer>
+    <mat-toolbar color="primary" fxLayout="row" fxLayoutAlign="space-between" >
+      <p>Result<span *ngIf="showRslt" > - correct : {{ crt }} wrong : {{ wrg }} </span> </p>
+      <p>Time -  <span>  {{ minutes }} : {{ seconds }} </span></p>
+    </mat-toolbar>
+<div class="cpRght">
+    <span>copyright©sankerdas</span>
+</div>
+</footer>

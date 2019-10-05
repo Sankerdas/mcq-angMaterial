@@ -1,6 +1,6 @@
-<mat-card-title>    
-    Add MCQ Quesions    
-</mat-card-title> 
+<h2 class="subttl">
+    Add MCQ Quesions
+</h2>
 <form [formGroup]="insForm" (ngSubmit)="ins()" >
     <div class="qnsAddFrm">
         <mat-form-field>
@@ -24,14 +24,16 @@
         </mat-form-field>
 
         <mat-radio-group aria-label="Select Answer" formControlName="ans">
-            <label id="">Select Answer</label>
+            <label class="radioLabel" id="">Select Answer</label>
             <mat-radio-button value="A">A</mat-radio-button>
             <mat-radio-button value="B">B</mat-radio-button>
             <mat-radio-button value="C">C</mat-radio-button>
             <mat-radio-button value="D">D</mat-radio-button>
         </mat-radio-group>
 
-        <button mat-raised-button color="primary">Add Data</button>
+        <button class="addBtn" mat-raised-button color="primary">
+          Add Data<mat-icon aria-hidden="false" aria-label="Add Quesion">arrow_right</mat-icon>
+        </button>
 
     </div>
 </form>
@@ -39,4 +41,4 @@
 <h2> {{ insForm.value | json }} </h2>
 
 <a href="https://www.c-sharpcorner.com/article/angular-material-components-with/">https://Angular example form template use it</a>
-  
+

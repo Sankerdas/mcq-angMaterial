@@ -17,6 +17,7 @@ export class QuizMainComponent implements OnInit {
 
   tRun = false;
   showQz = false;
+  showRslt = false;
   seconds = 0;
   minutes = 0;
 
@@ -31,7 +32,9 @@ export class QuizMainComponent implements OnInit {
     this.dataservice.getData().pipe(
       map(changes => {
         return changes.map(c => ( { key: c.payload.key, ...c.payload.val() } ));
-      }) ).subscribe(res => ( this.qzList = res ) );
+      }) ).subscribe(res => {
+        this.qzList = res;
+      } );
   }
 
   checkAns(ans) {
@@ -44,6 +47,8 @@ export class QuizMainComponent implements OnInit {
 
   finishQz() {
     this.tRun = false;
+    this.showRslt = true;
+
     console.log('correct ' + this.crt + ' wrong ' + this.wrg );
   }
 

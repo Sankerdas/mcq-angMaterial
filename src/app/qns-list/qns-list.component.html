@@ -1,6 +1,6 @@
-<mat-card-title>
+<h2 class="subttl">
     MCQ Quesions List
-</mat-card-title>
+</h2>
 
 <div class="qnsListDiv" *ngFor="let qn of qnList; let i = index" >
 <mat-card class="qns-card" >
@@ -12,7 +12,9 @@
       <p [ngClass]="{ansTxt: qn.ans == 'D' }" >D) {{ qn.opnD }}</p>
     </mat-card-content>
     <mat-card-actions>
-      <button (click)="deleteQns(qn.key)" mat-button> Delete </button>
+      <button (click)="deleteQns(qn.key)" mat-stroked-button color="warn">
+        Delete <mat-icon aria-hidden="false" aria-label="Delete this Quesion">delete_forever</mat-icon>
+      </button>
     </mat-card-actions>
   </mat-card>
 </div>

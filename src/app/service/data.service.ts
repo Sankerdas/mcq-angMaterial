@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { Observable } from 'rxjs';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ import { Observable } from 'rxjs';
 
 export class DataService {
 
-  constructor(public formBuilder: FormBuilder, public fireDb: AngularFireDatabase) { }
+  constructor(public formBuilder: FormBuilder, public fireDb: AngularFireDatabase, private snackBar: MatSnackBar) { }
 
   mtchPwd: any;
   private admDet = [
@@ -65,6 +66,12 @@ export class DataService {
 
 
   userLogin(data) {
+  }
+
+  openSnackBar(message: string, action: string) {
+    this.snackBar.open(message, action, {
+      duration: 5000,
+    });
   }
 
 }

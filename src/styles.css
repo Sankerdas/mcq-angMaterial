@@ -3,3 +3,13 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.subttl {
+  text-align: center;
+  margin: 5px;
+  font-weight: 400;
+}
+
+.footerSpacer {
+  height: 150px;
+}
