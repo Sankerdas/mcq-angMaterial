@@ -13,14 +13,6 @@ export class DataService {
 
   constructor(public formBuilder: FormBuilder, public fireDb: AngularFireDatabase, private snackBar: MatSnackBar) { }
 
-  mtchPwd: any;
-  private admDet = [
-    {
-      adm: 'admin',
-      pswd: 'admin@me'
-    }
-  ];
-
   qnsForm: FormGroup = this.formBuilder.group({
     qns: ['', Validators.required],
     opnA: ['', Validators.required],
@@ -41,7 +33,7 @@ export class DataService {
   });
 
   insData(data) {
-    this.fireDb.list('qns').push(data);
+    this.fireDb.list('mcqzAdmin').push(data);
     console.log('inserted successfully');
   }
 
@@ -49,21 +41,13 @@ export class DataService {
     return this.fireDb.list('qns').snapshotChanges();
   }
 
+  getAdmin() {
+    return this.fireDb.list('mcqzAdmin').snapshotChanges();
+  }
+
   deleteData(key) {
     this.fireDb.list('qns').remove(key);
   }
-
-  adminLogin(admData) {
-    const ad = admData.adm;
-    const ps = admData.pswd;
-    if ( ad === this.admDet[0].adm && ps === this.admDet[0].pswd ) {
-      console.log('success');
-    } else {
-      console.log('faild');
-    }
-
-      }
-
 
   userLogin(data) {
   }
