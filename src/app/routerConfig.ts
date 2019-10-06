@@ -4,6 +4,7 @@ import { DashComponent } from './dash/dash.component';
 import { LoginComponent } from './login/login.component';
 import { QuizMainComponent } from './quiz-main/quiz-main.component';
 import { AdmLoginComponent } from './admin/adm-login/adm-login.component';
+import { UserManageComponent } from './admin/user-manage/user-manage.component';
 
 export const appRoutes: Routes = [
     {
@@ -21,6 +22,10 @@ export const appRoutes: Routes = [
     {
         path: 'admin',
         component: AdmLoginComponent
+    },
+    {
+        path: 'user-manage',
+        component: UserManageComponent
     },
     {
         path: '',

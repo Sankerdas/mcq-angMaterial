@@ -1,0 +1,26 @@
+.usrAddFrm {
+  display: flex;
+  flex-direction: column;
+  margin: 10px auto;
+}
+
+
+.mat-radio-button ~ .mat-radio-button {
+  margin-left: 20px;
+}
+
+.radioLabel {
+  margin-right: 10px
+}
+
+.addBtn {
+width: 50%;
+align-self: center;
+margin: 20px;
+}
+
+
+mat-icon {
+line-height: 0.98em;
+}
+

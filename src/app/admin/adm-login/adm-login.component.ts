@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from 'src/app/service/data.service';
+import { DataService } from '../../service/data.service';
 import { map } from 'rxjs/operators';
+import { LocalStorageService } from 'ngx-webstorage';
 
 @Component({
   selector: 'app-adm-login',
@@ -9,7 +10,7 @@ import { map } from 'rxjs/operators';
 })
 export class AdmLoginComponent implements OnInit {
 
-  constructor(private dataservice: DataService) { }
+  constructor(private dataservice: DataService, private localStorageServ: LocalStorageService ) { }
   admForm = this.dataservice.admForm;
   adms: any;
 
@@ -29,7 +30,8 @@ export class AdmLoginComponent implements OnInit {
     const inpt = this.admForm.value;
     const getData = chk.filter(dt => dt.adm === inpt.adm && dt.pswd === inpt.pswd ); // cheching login using filter method
     if (getData.length > 0) {
-      console.log('success');
+      console.log(getData[0].key);
+      this.localStorageServ.store('mcqzAdm', getData[0].key);
     } else {
       console.log('faild');
     }

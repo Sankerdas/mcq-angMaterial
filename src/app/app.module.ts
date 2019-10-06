@@ -25,6 +25,11 @@ import { AnswerDirDirective } from './customDirectives/answer-dir.directive';
 import { RegisterComponent } from './register/register.component';
 import { AdmLoginComponent } from './admin/adm-login/adm-login.component';
 
+import { NgxWebstorageModule } from 'ngx-webstorage';
+import { UserManageComponent } from './admin/user-manage/user-manage.component';
+import { UserAddComponent } from './admin/user-add/user-add.component';
+import { UserListComponent } from './admin/user-list/user-list.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,7 +40,10 @@ import { AdmLoginComponent } from './admin/adm-login/adm-login.component';
     QuizMainComponent,
     AnswerDirDirective,
     RegisterComponent,
-    AdmLoginComponent
+    AdmLoginComponent,
+    UserManageComponent,
+    UserAddComponent,
+    UserListComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +56,8 @@ import { AdmLoginComponent } from './admin/adm-login/adm-login.component';
     FlexLayoutModule,
     RouterModule.forRoot(appRoutes),
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    NgxWebstorageModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

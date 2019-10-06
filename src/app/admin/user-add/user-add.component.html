@@ -1,0 +1,25 @@
+<h2 class="subttl">
+    Add Users
+</h2>
+<form [formGroup]="usrFm" (ngSubmit)="addUser()" >
+    <div class="usrAddFrm">
+        <mat-form-field>
+            <input matInput formControlName="name" placeholder="User name">
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput formControlName="email" placeholder="Email">
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput formControlName="pswd" placeholder="Password">
+        </mat-form-field>
+
+        <button class="addBtn" mat-raised-button color="primary">
+          Push User<mat-icon aria-hidden="false" aria-label="Add User">arrow_right</mat-icon>
+        </button>
+
+    </div>
+</form>
+
+<h2> {{ usrFm.value | json }} </h2>

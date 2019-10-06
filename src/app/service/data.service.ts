@@ -28,12 +28,13 @@ export class DataService {
   });
 
   usrForm: FormGroup = this.formBuilder.group({
-    usr: ['', Validators.required ],
+    name: ['', Validators.required ],
+    email: ['', Validators.required ],
     pswd: ['', Validators.required ]
   });
 
   insData(data) {
-    this.fireDb.list('mcqzAdmin').push(data);
+    this.fireDb.list('qns').push(data);
     console.log('inserted successfully');
   }
 
@@ -41,12 +42,25 @@ export class DataService {
     return this.fireDb.list('qns').snapshotChanges();
   }
 
+  deleteData(key) {
+    this.fireDb.list('qns').remove(key);
+  }
+
   getAdmin() {
     return this.fireDb.list('mcqzAdmin').snapshotChanges();
   }
 
-  deleteData(key) {
-    this.fireDb.list('qns').remove(key);
+  insUser(data) {
+    this.fireDb.list('user').push(data);
+    console.log('inserted successfully');
+  }
+
+  getUser(): Observable<any[]> {
+    return this.fireDb.list('user').snapshotChanges();
+  }
+
+  deleteUser(key) {
+    this.fireDb.list('user').remove(key);
   }
 
   userLogin(data) {

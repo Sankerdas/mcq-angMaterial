@@ -1,0 +1,18 @@
+<h2 class="subttl">
+    Users List
+</h2>
+
+<div class="usrListDiv" *ngFor="let usr of usrList; let i = index" >
+<mat-card class="qns-card" >
+    <mat-card-content>
+      <mat-card-title> {{ i+1 }}. {{ usr.name }} </mat-card-title>
+      <p> {{ usr.email }} </p>
+      <p> {{ usr.pswd }} </p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button (click)="removeUser(usr.key)" mat-stroked-button color="warn">
+        Delete <mat-icon aria-hidden="false" aria-label="Delete this Quesion">delete_forever</mat-icon>
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>
