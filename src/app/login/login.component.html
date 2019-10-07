@@ -1,11 +1,12 @@
-<mat-card-title>    
-    User Login    
-</mat-card-title> 
+<h2 class="subttl">
+    User Login
+</h2>
+
 
 <form [formGroup]="usrForm" (ngSubmit)="usrLogin()" >
     <div class="usrFormClass">
         <mat-form-field>
-            <input matInput formControlName="usr" placeholder="User Name">
+            <input matInput formControlName="email" placeholder="Email">
         </mat-form-field>
         <mat-form-field>
             <input matInput formControlName="pswd" placeholder="Password">

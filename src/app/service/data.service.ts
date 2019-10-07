@@ -63,8 +63,6 @@ export class DataService {
     this.fireDb.list('user').remove(key);
   }
 
-  userLogin(data) {
-  }
 
   openSnackBar(message: string, action: string) {
     this.snackBar.open(message, action, {
