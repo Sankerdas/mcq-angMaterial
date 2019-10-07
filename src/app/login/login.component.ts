@@ -24,17 +24,8 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  usrLogin() {
-    const chk = this.usrList;
-    const inpt = this.usrForm.value;
-    const getData = chk.filter(dt => dt.adm === inpt.adm && dt.pswd === inpt.pswd ); // cheching login using filter method
-    if (getData.length > 0) {
-      console.log(getData[0].key);
-      this.localStorageServ.store('mcqzUser', getData[0].key);
-    } else {
-      console.log('faild');
-    }
-
+  usrLogin(data) {
+    this.dataservice.usrLogin(data);
   }
 
   ngOnInit() {

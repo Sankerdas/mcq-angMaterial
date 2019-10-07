@@ -3,7 +3,7 @@
 </h2>
 
 
-<form [formGroup]="usrForm" (ngSubmit)="usrLogin()" >
+<form [formGroup]="usrForm" (ngSubmit)="usrLogin(usrList)" >
     <div class="usrFormClass">
         <mat-form-field>
             <input matInput formControlName="email" placeholder="Email">

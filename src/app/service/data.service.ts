@@ -1,8 +1,9 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter, Output } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { Observable } from 'rxjs';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { LocalStorageService } from 'ngx-webstorage';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 
 export class DataService {
 
-  constructor(public formBuilder: FormBuilder, public fireDb: AngularFireDatabase, private snackBar: MatSnackBar) { }
+  constructor(public formBuilder: FormBuilder, public fireDb: AngularFireDatabase, private snackBar: MatSnackBar,
+              private localStorageServ: LocalStorageService) { }
 
   qnsForm: FormGroup = this.formBuilder.group({
     qns: ['', Validators.required],
@@ -32,6 +34,9 @@ export class DataService {
     email: ['', Validators.required ],
     pswd: ['', Validators.required ]
   });
+
+  isOpen = false;
+
 
   insData(data) {
     this.fireDb.list('qns').push(data);
@@ -58,6 +63,30 @@ export class DataService {
   getUser(): Observable<any[]> {
     return this.fireDb.list('user').snapshotChanges();
   }
+
+  usrLogin(data) {
+    const chk = data;
+    const inpt = this.usrForm.value;
+    const getData = chk.filter(dt => dt.email === inpt.email && dt.pswd === inpt.pswd ); // cheching login using filter method
+    if (getData.length > 0) {
+      console.log(getData[0].key);
+      this.localStorageServ.store('mcqzusrkey', getData[0].key);
+      this.localStorageServ.store('mcqzusrname', getData[0].name);
+      this.checkLogin(true);
+    } else {
+      console.log('faild');
+    }
+
+  }
+
+
+  checkLogin(stat): Observable<any> {
+    return new Observable(
+        observer => {
+          observer.next(stat);
+        }
+    );
+}
 
   deleteUser(key) {
     this.fireDb.list('user').remove(key);

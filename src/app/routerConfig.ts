@@ -12,16 +12,16 @@ export const appRoutes: Routes = [
         component: QuizMainComponent
     },
     {
-        path: 'dashboard',
-        component: DashComponent
-    },
-    {
         path: 'login',
         component: LoginComponent
     },
     {
         path: 'admin',
         component: AdmLoginComponent
+    },
+    {
+        path: 'dashboard',
+        component: DashComponent
     },
     {
         path: 'user-manage',
