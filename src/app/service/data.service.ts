@@ -14,7 +14,8 @@ import { Router } from '@angular/router';
 export class DataService {
 
   constructor(public formBuilder: FormBuilder, public fireDb: AngularFireDatabase, private snackBar: MatSnackBar,
-              private localStorageServ: LocalStorageService, public localStore: LocalStorageService ) { }
+              private localStorageServ: LocalStorageService, public localStore: LocalStorageService,
+              private router: Router ) { }
 
 
   qnsForm: FormGroup = this.formBuilder.group({
@@ -37,17 +38,7 @@ export class DataService {
     pswd: ['', Validators.required ]
   });
 
-  login: Observable<any[]>;
 
-  public isLogged = new BehaviorSubject<boolean>(false);
-
-  get checkLoggin() {
-    return this.isLogged.asObservable();
-  }
-
-  checkLogin(): Observable<any[]> {
-    return this.localStore.retrieve('mcqzusrname');
-  }
 
   insData(data) {
     this.fireDb.list('qns').push(data);
@@ -89,11 +80,9 @@ export class DataService {
 
   }
 
-
   deleteUser(key) {
     this.fireDb.list('user').remove(key);
   }
-
 
 
 
@@ -101,6 +90,10 @@ export class DataService {
     this.snackBar.open(message, action, {
       duration: 5000,
     });
+  }
+
+  doRedirect(url) {
+    this.router.navigate([url]);
   }
 
 }

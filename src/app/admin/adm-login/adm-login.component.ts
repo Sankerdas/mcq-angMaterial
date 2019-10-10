@@ -30,12 +30,12 @@ export class AdmLoginComponent implements OnInit {
     const inpt = this.admForm.value;
     const getData = chk.filter(dt => dt.adm === inpt.adm && dt.pswd === inpt.pswd ); // cheching login using filter method
     if (getData.length > 0) {
-      console.log(getData[0].key);
       this.localStorageServ.store('mcqzadmkey', getData[0].key);
       this.localStorageServ.store('mcqzadmname', getData[0].name);
-      this.dataservice.isLogged.next(true);
+      this.dataservice.openSnackBar('Login success ', 'done');
+      this.dataservice.doRedirect('dashboard');
     } else {
-      console.log('faild');
+      this.dataservice.openSnackBar('Login faild try again ', 'close');
     }
 
   }

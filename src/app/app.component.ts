@@ -18,6 +18,8 @@ export class AppComponent  implements OnInit {
 
   logOut() {
     this.localStorageServ.clear();
+    this.dataService.openSnackBar('Logout success', 'close');
+    this.dataService.doRedirect('quiz');
   }
 
   ngOnInit() {
