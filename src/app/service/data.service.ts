@@ -1,9 +1,10 @@
-import { Injectable, EventEmitter, Output } from '@angular/core';
+import { Injectable} from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AngularFireDatabase } from 'angularfire2/database';
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { LocalStorageService } from 'ngx-webstorage';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,8 @@ import { LocalStorageService } from 'ngx-webstorage';
 export class DataService {
 
   constructor(public formBuilder: FormBuilder, public fireDb: AngularFireDatabase, private snackBar: MatSnackBar,
-              private localStorageServ: LocalStorageService) { }
+              private localStorageServ: LocalStorageService, public localStore: LocalStorageService ) { }
+
 
   qnsForm: FormGroup = this.formBuilder.group({
     qns: ['', Validators.required],
@@ -35,8 +37,17 @@ export class DataService {
     pswd: ['', Validators.required ]
   });
 
-  isOpen = false;
+  login: Observable<any[]>;
 
+  public isLogged = new BehaviorSubject<boolean>(false);
+
+  get checkLoggin() {
+    return this.isLogged.asObservable();
+  }
+
+  checkLogin(): Observable<any[]> {
+    return this.localStore.retrieve('mcqzusrname');
+  }
 
   insData(data) {
     this.fireDb.list('qns').push(data);
@@ -72,7 +83,6 @@ export class DataService {
       console.log(getData[0].key);
       this.localStorageServ.store('mcqzusrkey', getData[0].key);
       this.localStorageServ.store('mcqzusrname', getData[0].name);
-      this.checkLogin(true);
     } else {
       console.log('faild');
     }
@@ -80,17 +90,11 @@ export class DataService {
   }
 
 
-  checkLogin(stat): Observable<any> {
-    return new Observable(
-        observer => {
-          observer.next(stat);
-        }
-    );
-}
-
   deleteUser(key) {
     this.fireDb.list('user').remove(key);
   }
+
+
 
 
   openSnackBar(message: string, action: string) {

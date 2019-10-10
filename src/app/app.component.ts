@@ -15,10 +15,12 @@ export class AppComponent  implements OnInit {
   constructor( private dataService: DataService, private localStorageServ: LocalStorageService) { }
 
 
+
   logOut() {
     this.localStorageServ.clear();
   }
 
   ngOnInit() {
+
   }
 }

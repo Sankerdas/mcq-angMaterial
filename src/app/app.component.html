@@ -12,11 +12,11 @@
       <span class="menu-spacer"></span>
       <div fxShow="true" fxHide.lt-md>
         <a [matMenuTriggerFor]="logSub" routerLinkActive="active" mat-button>
-         <span> {{ isLogin }} </span> <mat-icon aria-hidden="false" aria-label="Add Quesion">power_settings_new</mat-icon>
+          {{tstMsg}}<span> {{ isLogin }} </span> <mat-icon aria-hidden="false" aria-label="Add Quesion">power_settings_new</mat-icon>
         </a>
         <mat-menu #logSub="matMenu">
-          <a mat-menu-item routerLink="login" *ngIf="!isLogin"  >Login</a>
-          <a mat-menu-item (click)="logOut()" *ngIf="isLogin" >Logout</a>
+          <a mat-menu-item routerLink="login" >Login</a>
+          <a mat-menu-item (click)="logOut()" >Logout</a>
         </mat-menu>
       </div>
     </mat-toolbar-row>

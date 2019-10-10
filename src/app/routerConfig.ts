@@ -6,6 +6,8 @@ import { QuizMainComponent } from './quiz-main/quiz-main.component';
 import { AdmLoginComponent } from './admin/adm-login/adm-login.component';
 import { UserManageComponent } from './admin/user-manage/user-manage.component';
 
+import { AdminGuard } from './guards/admin.guard';
+
 export const appRoutes: Routes = [
     {
         path: 'quiz',
@@ -21,11 +23,13 @@ export const appRoutes: Routes = [
     },
     {
         path: 'dashboard',
-        component: DashComponent
+        component: DashComponent,
+        canActivate: [AdminGuard]
     },
     {
         path: 'user-manage',
-        component: UserManageComponent
+        component: UserManageComponent,
+        canActivate: [AdminGuard]
     },
     {
         path: '',

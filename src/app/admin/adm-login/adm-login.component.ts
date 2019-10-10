@@ -33,6 +33,7 @@ export class AdmLoginComponent implements OnInit {
       console.log(getData[0].key);
       this.localStorageServ.store('mcqzadmkey', getData[0].key);
       this.localStorageServ.store('mcqzadmname', getData[0].name);
+      this.dataservice.isLogged.next(true);
     } else {
       console.log('faild');
     }
