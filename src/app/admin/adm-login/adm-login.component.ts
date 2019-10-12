@@ -34,6 +34,7 @@ export class AdmLoginComponent implements OnInit {
       this.localStorageServ.store('mcqzadmname', getData[0].name);
       this.dataservice.openSnackBar('Login success ', 'done');
       this.dataservice.doRedirect('dashboard');
+      this.dataservice.currentAdminSubject.next(getData[0].name);
     } else {
       this.dataservice.openSnackBar('Login faild try again ', 'close');
     }

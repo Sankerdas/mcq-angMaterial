@@ -38,6 +38,13 @@ export class DataService {
     pswd: ['', Validators.required ]
   });
 
+  currentAdminSubject = new BehaviorSubject(this.localStore.retrieve('mcqzadmname'));
+  // BehaviorSubject just like observable dynamically change value
+
+  public get currentAdminValue() {
+    return this.currentAdminSubject;
+  }
+
 
 
   insData(data) {
@@ -74,8 +81,9 @@ export class DataService {
       console.log(getData[0].key);
       this.localStorageServ.store('mcqzusrkey', getData[0].key);
       this.localStorageServ.store('mcqzusrname', getData[0].name);
+      this.currentAdminSubject.next(getData[0].name);
     } else {
-      console.log('faild');
+      this.openSnackBar('User name or Password not matching', 'Retry');
     }
 
   }
@@ -85,6 +93,7 @@ export class DataService {
   }
 
 
+// common functions
 
   openSnackBar(message: string, action: string) {
     this.snackBar.open(message, action, {
