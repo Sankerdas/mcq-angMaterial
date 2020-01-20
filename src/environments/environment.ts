@@ -5,15 +5,17 @@
 export const environment = {
   production: true,
   firebaseConfig: {
-    apiKey: 'AIzaSyDvpHcakJgN4ERvMkpZaIJA1OO38MPpxy0',
-    authDomain: 'mcqs-b0851.firebaseapp.com',
-    databaseURL: 'https://mcqs-b0851.firebaseio.com',
-    projectId: 'mcqs-b0851',
-    storageBucket: 'mcqs-b0851.appspot.com',
-    messagingSenderId: '796005090890',
-    appId: '1:796005090890:web:5e6495c91b8e9e2c'
+    apiKey: "AIzaSyB8EmNxiAz5rr6OACI0tLBo-kERci2a4ZY",
+    authDomain: "mcq-app-4c344.firebaseapp.com",
+    databaseURL: "https://mcq-app-4c344.firebaseio.com",
+    projectId: "mcq-app-4c344",
+    storageBucket: "mcq-app-4c344.appspot.com",
+    messagingSenderId: "890603109578",
+    appId: "1:890603109578:web:5aaf3f9898d71c9f59c833",
+    measurementId: "G-J9KNWDH9S3"
   }
 };
+
 
 /*
  * For easier debugging in development mode, you can import the following file
