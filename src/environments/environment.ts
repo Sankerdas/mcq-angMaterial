@@ -5,14 +5,14 @@
 export const environment = {
   production: true,
   firebaseConfig: {
-    apiKey: "AIzaSyB8EmNxiAz5rr6OACI0tLBo-kERci2a4ZY",
-    authDomain: "mcq-app-4c344.firebaseapp.com",
-    databaseURL: "https://mcq-app-4c344.firebaseio.com",
-    projectId: "mcq-app-4c344",
-    storageBucket: "mcq-app-4c344.appspot.com",
-    messagingSenderId: "890603109578",
-    appId: "1:890603109578:web:5aaf3f9898d71c9f59c833",
-    measurementId: "G-J9KNWDH9S3"
+    apiKey: 'AIzaSyBSTU-RG6Czfp5LV2tBS0Q3VBoc0hNqxu8',
+    authDomain: 'mcqs-f8ce8.firebaseapp.com',
+    databaseURL: 'https://mcqs-f8ce8.firebaseio.com',
+    projectId: 'mcqs-f8ce8',
+    storageBucket: 'mcqs-f8ce8.appspot.com',
+    messagingSenderId: '1065829756390',
+    appId: '1:1065829756390:web:6c7f8ff5445304aae4fa27',
+    measurementId: 'G-429MZ59E2Q'
   }
 };
 

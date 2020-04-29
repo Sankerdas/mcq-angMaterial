@@ -1,12 +1,13 @@
 export const environment = {
   production: true,
   firebaseConfig: {
-    apiKey: 'AIzaSyDvpHcakJgN4ERvMkpZaIJA1OO38MPpxy0',
-    authDomain: 'mcqs-b0851.firebaseapp.com',
-    databaseURL: 'https://mcqs-b0851.firebaseio.com',
-    projectId: 'mcqs-b0851',
-    storageBucket: 'mcqs-b0851.appspot.com',
-    messagingSenderId: '796005090890',
-    appId: '1:796005090890:web:5e6495c91b8e9e2c'
+    apiKey: 'AIzaSyBSTU-RG6Czfp5LV2tBS0Q3VBoc0hNqxu8',
+    authDomain: 'mcqs-f8ce8.firebaseapp.com',
+    databaseURL: 'https://mcqs-f8ce8.firebaseio.com',
+    projectId: 'mcqs-f8ce8',
+    storageBucket: 'mcqs-f8ce8.appspot.com',
+    messagingSenderId: '1065829756390',
+    appId: '1:1065829756390:web:6c7f8ff5445304aae4fa27',
+    measurementId: 'G-429MZ59E2Q'
   }
 };
